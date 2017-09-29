@@ -19,5 +19,8 @@ RSpec.configure do |config|
     Store.all.each do |store|
       recipe.destroy
     end
+    Product.all.each do |store|
+      recipe.destroy
+    end
   end
 end

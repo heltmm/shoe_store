@@ -1,15 +1,15 @@
+class Store < ActiveRecord::Base
+  has_many :products
+  has_many :shoes, through: :products
+  validates(:name, :presence => true)
+  validates(:name, :presence => true)
+  validates(:name, :presence => true)
+  validates(:name, uniqueness: {case_sensitive: false})
+  validates(:location, uniqueness: {case_sensitive: false})
+  before_save(:capitalize_name)
 
-source("https://rubygems.org")
-
-gem("pg")
-gem("sinatra")
-gem("sinatra-contrib", :require => "sinatra/reloader")
-gem("sinatra-activerecord")
-gem("rake")
-
-group(:test) do
-  gem("rspec")
-  gem("capybara")
-  gem("pry")
-  gem("shoulda-matchers", '~> 2.0')
+private
+  def capitalize_name
+    self.name = (name.split(" ").map {|word| word.capitalize}).join(' ')
+  end
 end
