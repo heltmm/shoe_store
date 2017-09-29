@@ -2,3 +2,7 @@
   padding: 10px;
   margin: 5px 0px 5px 0px;
 }
+.inline p,h1{
+  display: inline;
+  margin-right: 50px;
+}

@@ -60,3 +60,11 @@ delete('/store/delete/:id') do
   @stores = Store.all
   erb(:stores)
 end
+
+delete('/shoe/delete/:id') do
+  @deleted_shoe = Shoe.find(params['id'])
+  @shoe_delete = true
+  Shoe.delete(params['id'])
+  @shoes = Shoe.all
+  erb(:shoes)
+end

@@ -1,4 +1,9 @@
 <h1>Shoes:</h1>
+<% if @shoe_delete %>
+  <div class="alert alert-warning">
+    <h3><%= @deleted_shoe.brand %> was succesfully deleted</h3>
+  </div>
+<% end %>
 
 <% @shoes.each do |shoe| %>
   <h4><a href='/shoe/<%= shoe.id %>'><%= shoe.brand %></a></h4>

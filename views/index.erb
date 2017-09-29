@@ -18,12 +18,12 @@
 
     <% if @store_saved %>
       <div class="alert alert-success">
-        <h3><%= @store.name %> at <%= @store.location%> was successfully saved</h3>
+        <h3><%= @store.name %> at <%= @store.location%> was successfully saved.</h3>
       </div>
     <% end %>
     <% if @store_not_saved %>
       <div class="alert alert-danger">
-        <h3>Store Was not saved! Please make sure to Enter new name and location</h3>
+        <h3>Store was not saved! Please make sure to enter a new name and location.</h3>
       </div>
     <% end %>
 
@@ -50,12 +50,12 @@
     </div>
     <% if @shoe_saved %>
       <div class="alert alert-success">
-        <h3><%= @shoe.brand %> at <%= @shoe.price%> was successfully saved</h3>
+        <h3><%= @shoe.brand %> at $<%= @shoe.price%> was successfully saved.</h3>
       </div>
     <% end %>
     <% if @shoe_not_saved %>
       <div class="alert alert-danger">
-        <h3>Shoe Was not saved! Please make sure to Enter new brand and price</h3>
+        <h3>Shoe was not saved! Please make sure to enter a new brand and price.</h3>
       </div>
     <% end %>
 
