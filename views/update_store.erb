@@ -1,24 +1,23 @@
-<div class='inline'>
-  <h1><%= @store.name %></h1><p> Located at: </p><h1><%= @store.location %></h1>
-</div>
 <div class='row'>
   <div class='col-lg-6'>
+    <h1><%= @store.name %></h1>
     <div class='card bg-light'>
       <h2>Update Name:</h2>
       <form action="/store/update/name/<%= @store.id %>" method="post">
         <input type="hidden" name="_method" value="patch">
         <input class='form-control' type="text" name="name">
-        <button type="submit">Update Name</button>
+        <button class='btn btn-info' type="submit">Update Name</button>
       </form>
     </div>
   </div>
   <div class='col-lg-6'>
+    <h1><%= @store.location %></h1>
     <div class='card bg-light'>
       <h2>Update Location:</h2>
       <form action="/store/update/location/<%= @store.id %>" method="post">
         <input type="hidden" name="_method" value="patch">
         <input class='form-control' type="text" name="location">
-        <button type="submit">Update Location</button>
+        <button class='btn btn-info' type="submit">Update Location</button>
       </form>
     </div>
   </div>
@@ -36,6 +35,6 @@
         </div>
       <% end %>
     <% end %>
-    <button type="submit">Update Shoes</button>
+    <button class='btn btn-info' type="submit">Update Shoes</button>
   </form>
 </div>
