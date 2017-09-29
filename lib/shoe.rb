@@ -1,6 +1,6 @@
-class Store <ActiveRecord::Base
+class Shoe <ActiveRecord::Base
   has_many :products
-  has_many :shoes, through: :foods
+  has_many :stores, through: :products
   validates(:brand, :presence => true)
   validates(:price, :presence => true)
   validates(:brand, uniqueness: true)

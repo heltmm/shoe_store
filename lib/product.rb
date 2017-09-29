@@ -1,4 +1,4 @@
 class Product <ActiveRecord::Base
-  belongs_to :shoes
-  belongs_to :stores
+  belongs_to :shoe
+  belongs_to :store
 end
