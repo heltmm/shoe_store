@@ -41,3 +41,28 @@
 <% @store.shoes.each do |shoe| %>
   <li><%= shoe.brand %></li>
 <% end %>
+
+<% if @store.shoes.any? %>
+      <table class="table table-striped table-info">
+        <thead>
+          <tr>
+            <th>Brand</th>
+            <th>Price</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+      </tbody>
+        <% @store.shoes.each do |shoe| %>
+          <tr>
+            <td><%= shoe.brand %></td>
+            <td><%= shoe.price %></td>
+            <td>
+              <form action="/delete/<%= shoe.id %>" method="post">
+                <button type="submit">Delete</button>
+              </form>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    <%end%>

@@ -1,7 +1,7 @@
 class Store < ActiveRecord::Base
   has_many :products
   has_many :shoes, through: :products
-  validates(:name, :presence => true)
+  validates(:name, {:presence => true, :length => {:maximum => 100}})
   validates(:location, :presence => true)
   validates(:name, uniqueness: {case_sensitive: false})
   validates(:location, uniqueness: {case_sensitive: false})
