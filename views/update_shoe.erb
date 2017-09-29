@@ -1,1 +1,24 @@
-<h1><%= @shoe.brand %></h1>
+<div class='row'>
+  <div class='col-lg-6'>
+    <h1>Brand: <%= @shoe.brand %></h1>
+    <div class='card bg-light'>
+      <h2>Update Brand:</h2>
+      <form action="/shoe/update/brand/<%= @shoe.id %>" method="post">
+        <input type="hidden" name="_method" value="patch">
+        <input class='form-control' type="text" name="brand">
+        <button type="submit">Update Brand</button>
+      </form>
+    </div>
+  </div>
+  <div class='col-lg-6'>
+    <h1>Price: <%= @shoe.price %>0</h1>
+    <div class='card bg-light'>
+      <h2>Update Price:</h2>
+      <form action="/shoe/update/price/<%= @shoe.id %>" method="post">
+        <input type="hidden" name="_method" value="patch">
+        <input class='form-control' type="text" name="price">
+        <button type="submit">Update Price</button>
+      </form>
+    </div>
+  </div>
+</div>

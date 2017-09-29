@@ -106,5 +106,29 @@ end
 
 patch('/store/update/shoes/:id') do
   Store.find(params['id']).update({:shoe_ids => params['shoe_ids']})
-  redirect("/store/#{params['id']}")
+  @shoes_updated = true
+  @store = Store.find(params['id'])
+  erb(:store)
+end
+
+patch('/shoe/update/brand/:id') do
+  @old_brand = Shoe.find(params['id']).brand
+  if Shoe.find(params['id']).update({:brand => params['brand']})
+    @brand_updated = true
+  else
+    @brand_not_updated = true
+  end
+  @shoe = Shoe.find(params['id'])
+  erb(:shoe)
+end
+
+patch('/shoe/update/price/:id') do
+  @old_price = Shoe.find(params['id']).price
+  if Shoe.find(params['id']).update({:price => params['price']})
+    @price_updated = true
+  else
+    @price_not_updated = true
+  end
+  @shoe = Shoe.find(params['id'])
+  erb(:shoe)
 end

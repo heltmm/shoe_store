@@ -7,3 +7,25 @@
   <input type="hidden" name="_method" value="delete">
   <button type="submit" class='btn btn-danger'>Delete</button>
 </form>
+
+<% if @brand_updated %>
+  <div class="alert alert-success">
+    <h3><%= @old_brand %> is now <%= @shoe.brand%></h3>
+  </div>
+<% end %>
+<% if @brand_not_updated %>
+  <div class="alert alert-danger">
+    <h3>Brand was not updated! Please enter a new Name.</h3>
+  </div>
+<% end %>
+
+<% if @price_updated %>
+  <div class="alert alert-success">
+    <h3><%= @old_price %> is now <%= @shoe.price%></h3>
+  </div>
+<% end %>
+<% if @price_not_updated %>
+  <div class="alert alert-danger">
+    <h3>Price was not updated! Please enter a new price.</h3>
+  </div>
+<% end %>
