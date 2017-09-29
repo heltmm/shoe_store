@@ -53,7 +53,7 @@ get('/shoe/:id') do
   erb(:shoe)
 end
 
-delete('/store/delete/:id') do
+post('/store/delete/:id') do
   @deleted_store = Store.find(params['id'])
   @store_delete = true
   Store.delete(params['id'])
