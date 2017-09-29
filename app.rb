@@ -12,9 +12,9 @@ end
 post('/create/store') do
   @store = Store.create({:name => params['name'], :location => params['location']})
   if @store.id
-    @saved = true
+    @store_saved = true
   else
-    @not_saved = true
+    @store_not_saved = true
   end
   @stores = Store.all
   @shoes = Shoe.all
@@ -22,5 +22,13 @@ post('/create/store') do
 end
 
 post('/create/shoe') do
-
+  @shoe = Shoe.create({:brand => params['brand'], :price => params['price']})
+  if @shoe.id
+    @shoe_saved = true
+  else
+    @shoe_not_saved = true
+  end
+  @stores = Store.all
+  @shoes = Shoe.all
+  erb(:index)
 end
