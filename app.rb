@@ -132,3 +132,8 @@ patch('/shoe/update/price/:id') do
   @shoe = Shoe.find(params['id'])
   erb(:shoe)
 end
+
+post('/shoe/remove/:id') do
+  Store.find(params['store_id']).shoes.delete(params['id'])
+  redirect("/store/#{params['store_id']}")
+end

@@ -56,10 +56,11 @@
     <% @store.shoes.each do |shoe| %>
       <tr>
         <td><%= shoe.brand %></td>
-        <td><%= shoe.price %></td>
+        <td>$<%= shoe.price %>0</td>
         <td>
-          <form action="/delete/<%= shoe.id %>" method="post">
-            <button type="submit">Delete</button>
+          <form action="/shoe/remove/<%= shoe.id %>" method="post">
+            <input type="hidden" name="store_id" value="<%= @store.id %>">
+            <button type="submit">Remove</button>
           </form>
         </td>
       </tr>
