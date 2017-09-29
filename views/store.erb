@@ -1,11 +1,43 @@
 <div class='inline'>
-<h1><%= @store.name %></h1><p> Located at: </p><h1><%= @store.location %></h1>
+  <h1><%= @store.name %></h1><p> Located at: </p><h1><%= @store.location %></h1>
 </div>
-<form class='form-inline' action="/store/update/<%= @store.id %>" method="post">
-  <input type="hidden" name="_method" value="patch">
+<form class='form-inline' action="/store/update/<%= @store.id %>" method="get">
   <button type="submit" class='btn-warning'>Update</button>
 </form>
-<form action="/store/delete/<%= @store.id %>" method="post">
+<form action="/store/delete/<%= @store.id %>" method="get">
   <input type="hidden" name="_method" value="delete">
   <button type="submit" class='btn-danger'>Delete</button>
 </form>
+
+<% if @name_updated %>
+  <div class="alert alert-success">
+    <h3><%= @old_name %> is now <%= @store.name%></h3>
+  </div>
+<% end %>
+<% if @name_not_updated %>
+  <div class="alert alert-danger">
+    <h3>Name was not updated! Please enter a new Name.</h3>
+  </div>
+<% end %>
+
+<% if @location_updated %>
+  <div class="alert alert-success">
+    <h3><%= @old_location %> is now <%= @store.location%></h3>
+  </div>
+<% end %>
+<% if @location_not_updated %>
+  <div class="alert alert-danger">
+    <h3>Location was not updated! Please enter a new Location.</h3>
+  </div>
+<% end %>
+
+<% if @shoes_updated %>
+  <div class="alert alert-success">
+    <h3><%= @store.name%> Shoe Selection has been updated</h3>
+  </div>
+<% end %>
+
+<h1>Shoes available at this store:</h1>
+<% @store.shoes.each do |shoe| %>
+  <li><%= shoe.brand %></li>
+<% end %>

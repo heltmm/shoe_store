@@ -1,0 +1,40 @@
+<div class='inline'>
+  <h1><%= @store.name %></h1><p> Located at: </p><h1><%= @store.location %></h1>
+</div>
+<div class='row'>
+  <div class='col-lg-6'>
+    <div class='card bg-light'>
+      <h2>Update Name:</h2>
+      <form action="/store/update/name/<%= @store.id %>" method="post">
+        <input type="hidden" name="_method" value="patch">
+        <input class='form-control' type="text" name="name">
+        <button type="submit">Update Name</button>
+      </form>
+    </div>
+  </div>
+  <div class='col-lg-6'>
+    <div class='card bg-light'>
+      <h2>Update Location:</h2>
+      <form action="store/update/name/<%= @store.id %>" method="post">
+        <input type="hidden" name="_method" value="patch">
+        <input class='form-control' type="text" name="location">
+        <button type="submit">Update Location</button>
+      </form>
+    </div>
+  </div>
+</div>
+<div class='card bg-light'>
+  <h2>Update Shoes sold at this Store:</h2>
+  <form class="" action="index.html" method="post">
+    <% if @shoes.any? %>
+      <% @shoes.each do |shoe| %>
+        <div class='checkbox'>
+          <label>
+            <input type='checkbox' name='shoe_ids[]' value='<%= shoe.id %>'> <%= shoe.brand %>
+          </label>
+        </div>
+      <% end %>
+    <% end %>
+    <button type="submit">Update Shoes</button>
+  </form>
+</div>

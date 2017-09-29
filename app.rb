@@ -68,3 +68,27 @@ delete('/shoe/delete/:id') do
   @shoes = Shoe.all
   erb(:shoes)
 end
+
+get('/shoe/update/:id') do
+  @shoe = Shoe.find(params['id'])
+
+  erb(:update_shoe)
+end
+
+get('/store/update/:id') do
+  @store = Store.find(params['id'])
+  @shoes = Shoe.all
+  @current_shoes = @store.shoes
+  erb(:update_store)
+end
+
+patch('/store/update/name/:id') do
+  @old_name = Store.find(params['id']).name
+  if Store.find(params['id']).update({:name => params['name']})
+    @name_updated = true
+  else
+    @name_not_updated = true
+  end
+  @store = Store.find(params['id'])
+  erb(:store)
+end

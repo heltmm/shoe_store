@@ -1,7 +1,6 @@
 <h1><%= @shoe.brand %></h1>
 
-<form class='form-inline' action="/shoe/update/<%= @shoe.id %>" method="post">
-  <input type="hidden" name="_method" value="patch">
+<form class='form-inline' action="/shoe/update/<%= @shoe.id %>" method="get">
   <button type="submit" class='btn btn-warning'>Update</button>
 </form>
 <form action="/shoe/delete/<%= @shoe.id %>" method="post">
