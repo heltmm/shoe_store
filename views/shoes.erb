@@ -1,0 +1,5 @@
+<h1>Shoes:</h1>
+
+<% @shoes.each do |shoe| %>
+  <h4><a href='/shoe/<%= shoe.id %>'><%= shoe.brand %></a></h4>
+<% end %>

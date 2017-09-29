@@ -1,1 +1,11 @@
 <h1><%= @store.name %></h1>
+<div id="inline">
+  <form class='form-inline' action="/store/update/<%= @store.id %>" method="post">
+    <input type="hidden" name="_method" value="patch">
+    <button type="submit" class='btn btn-warning'>Update</button>
+  </form>
+  <form action="/store/delete/<%= @store.id %>" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <button type="submit" class='btn btn-danger'>Delete</button>
+  </form>
+</div>

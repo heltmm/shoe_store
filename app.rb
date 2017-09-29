@@ -42,3 +42,21 @@ get('/store/:id') do
   @store = Store.find(params['id'])
   erb(:store)
 end
+
+get('/shoes') do
+  @shoes = Shoe.all
+  erb(:shoes)
+end
+
+get('/shoe/:id') do
+  @shoe = Shoe.find(params['id'])
+  erb(:shoe)
+end
+
+delete('/store/delete/:id') do
+  @deleted_store = Store.find(params['id'])
+  @store_delete = true
+  Store.delete(params['id'])
+  @stores = Store.all
+  erb(:stores)
+end

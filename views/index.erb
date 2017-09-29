@@ -1,18 +1,20 @@
 <div class='row'>
   <div class='col-md-6'>
 
-    <h1>Add Store</h1>
-    <form action="/create/store" method="post">
-      <div class='form-group'>
-        <label for="name">Enter Name of Store</label>
-        <input class='form-control' type="text" name="name">
-      </div>
-      <div class='form-group'>
-        <label for="location">Enter Location</label>
-        <input class='form-control' type="text" name="location">
-      </div>
-      <button type="submit" name="button">Add Store</button>
-    </form>
+    <div class='card bg-light'>
+      <h1>Add Store</h1>
+      <form action="/create/store" method="post">
+        <div class='form-group'>
+          <label for="name">Enter Name of Store</label>
+          <input class='form-control' type="text" name="name">
+        </div>
+        <div class='form-group'>
+          <label for="location">Enter Location</label>
+          <input class='form-control' type="text" name="location">
+        </div>
+        <button type="submit" name="button">Add Store</button>
+      </form>
+    </div>
 
     <% if @store_saved %>
       <div class="alert alert-success">
@@ -30,20 +32,22 @@
     <% end %>
   </div>
 
-  <div class='col-lg-6'>
-    <h1>Add Shoe</h1>
-    <form action="/create/shoe" method="post">
-      <div class='form-group'>
-        <label for="brand">Enter Brand of Shoe</label>
-        <input class='form-control' type="text" name="brand">
-      </div>
-      <div class='form-group'>
-        <label for="price">Enter Price</label>
-        <input class='form-control' type="text" name="price">
-      </div>
-      <button type="submit" name="button">Add Store</button>
-    </form>
 
+  <div class='col-md-6'>
+    <div class='card bg-light'>
+      <h1>Add Shoe</h1>
+      <form action="/create/shoe" method="post">
+        <div class='form-group'>
+          <label for="brand">Enter Brand of Shoe</label>
+          <input class='form-control' type="text" name="brand">
+        </div>
+        <div class='form-group'>
+          <label for="price">Enter Price</label>
+          <input class='form-control' type="text" name="price">
+        </div>
+        <button type="submit" name="button">Add Store</button>
+      </form>
+    </div>
     <% if @shoe_saved %>
       <div class="alert alert-success">
         <h3><%= @shoe.brand %> at <%= @shoe.price%> was successfully saved</h3>
