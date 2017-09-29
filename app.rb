@@ -32,3 +32,13 @@ post('/create/shoe') do
   @shoes = Shoe.all
   erb(:index)
 end
+
+get('/stores') do
+  @stores = Store.all
+  erb(:stores)
+end
+
+get('/store/:id') do
+  @store = Store.find(params['id'])
+  erb(:store)
+end
