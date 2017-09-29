@@ -6,10 +6,11 @@ class Store < ActiveRecord::Base
   validates(:name, :presence => true)
   validates(:name, uniqueness: {case_sensitive: false})
   validates(:location, uniqueness: {case_sensitive: false})
-  before_save(:capitalize_name)
+  before_save(:capitalize_input)
 
 private
-  def capitalize_name
+  def capitalize_input
     self.name = (name.split(" ").map {|word| word.capitalize}).join(' ')
+    self.location = (location.split(" ").map {|word| word.capitalize}).join(' ')
   end
 end
