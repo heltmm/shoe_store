@@ -1,9 +1,4 @@
 <h1>Shoes:</h1>
-<% if @shoe_delete %>
-  <div class="alert alert-warning">
-    <h3><%= @deleted_shoe.brand %> was succesfully deleted</h3>
-  </div>
-<% end %>
 
 <% if @shoes.any? %>
   <table class="table table-striped table-info">
@@ -37,3 +32,9 @@
 <%else%>
   <h2>Currently no shoes in inventory</h2>
 <%end%>
+
+<% if @shoe_delete %>
+  <div class="alert alert-warning">
+    <h3><%= @deleted_shoe.brand %> was succesfully deleted</h3>
+  </div>
+<% end %>
