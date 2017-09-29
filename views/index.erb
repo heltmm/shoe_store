@@ -12,7 +12,7 @@
           <label for="location">Enter Location</label>
           <input class='form-control' type="text" name="location">
         </div>
-        <button type="submit" name="button">Add Store</button>
+        <button class='btn-info' type="submit" name="button">Add Store</button>
       </form>
     </div>
 
@@ -25,10 +25,6 @@
       <div class="alert alert-danger">
         <h3>Store was not saved! Please make sure to enter a new name and location.</h3>
       </div>
-    <% end %>
-
-    <% @stores.each do |store| %>
-      <h4><%= store.name %></h4>
     <% end %>
   </div>
 
@@ -45,7 +41,7 @@
           <label for="price">Enter Price</label>
           <input class='form-control' type="text" name="price">
         </div>
-        <button type="submit" name="button">Add Shoe</button>
+        <button class='btn-info' type="submit" name="button">Add Shoe</button>
       </form>
     </div>
     <% if @shoe_saved %>
@@ -57,10 +53,6 @@
       <div class="alert alert-danger">
         <h3>Shoe was not saved! Please make sure to enter a new brand and price.</h3>
       </div>
-    <% end %>
-
-    <% @shoes.each do |shoe| %>
-      <h4><%= shoe.brand %></h4>
     <% end %>
   </div>
 </div>
