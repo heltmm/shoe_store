@@ -5,6 +5,35 @@
   </div>
 <% end %>
 
-<% @shoes.each do |shoe| %>
-  <h4><a href='/shoe/<%= shoe.id %>'><%= shoe.brand %></a></h4>
-<% end %>
+<% if @shoes.any? %>
+  <table class="table table-striped table-info">
+    <thead>
+      <tr>
+        <th>Brand</th>
+        <th>Price</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+  </tbody>
+    <% @shoes.each do |shoe| %>
+      <tr>
+        <td><a href='/shoe/<%= shoe.id %>'><%= shoe.brand %></a></td>
+        <td><%= shoe.price %>0</td>
+        <td>
+          <form action="/shoe/update/<%= shoe.id %>" method="get">
+            <button type="submit">Update</button>
+          </form>
+        </td>
+        <td>
+          <form action="/shoe/delete/<%= shoe.id %>" method="post">
+            <button type="submit">Delete</button>
+          </form>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<%else%>
+  <h2>Currently no shoes in inventory</h2>
+<%end%>

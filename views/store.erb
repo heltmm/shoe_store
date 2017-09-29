@@ -11,6 +11,40 @@
   </div>
 </div>
 
+
+
+<% if @store.shoes.any? %>
+<h2>Shoes available at this store</h2>
+  <table class="table table-striped table-info">
+    <thead>
+      <tr>
+        <th>Brand</th>
+        <th>Price</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+  </tbody>
+    <% @store.shoes.each do |shoe| %>
+      <tr>
+        <td><%= shoe.brand %></td>
+        <td>$<%= shoe.price %>0</td>
+        <td>
+          <form action="/shoe/remove/<%= shoe.id %>" method="post">
+            <input type="hidden" name="store_id" value="<%= @store.id %>">
+            <button type="submit">Remove</button>
+          </form>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+<%else%>
+  <h2>Currently no shoes available, click update to add shoes</h2>
+<%end%>
+<form class='form-inline' action="/store/update/<%= @store.id %>" method="get">
+  <button type="submit" class='btn-warning'>Update</button>
+</form>
+
 <% if @name_updated %>
   <div class="alert alert-success">
     <h3><%= @old_name %> is now <%= @store.name%></h3>
@@ -39,33 +73,8 @@
   </div>
 <% end %>
 
-<% if @store.shoes.any? %>
-<h2>Shoes available at this store</h2>
-  <table class="table table-striped table-info">
-    <thead>
-      <tr>
-        <th>Brand</th>
-        <th>Price</th>
-        <th>Delete</th>
-      </tr>
-    </thead>
-  </tbody>
-    <% @store.shoes.each do |shoe| %>
-      <tr>
-        <td><%= shoe.brand %></td>
-        <td>$<%= shoe.price %>0</td>
-        <td>
-          <form action="/store/delete/<%= @store.id %>" method="post">
-            <button type="submit">Remove</button>
-          </form>
-        </td>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
-<%else%>
-  <h2>Currently no shoes available, click update to add shoes</h2>
-<%end%>
-<form class='form-inline' action="/store/update/<%= @store.id %>" method="get">
-  <button type="submit" class='btn-warning'>Update</button>
-</form>
+<% if @brand_removed %>
+  <div class="alert alert-warning">
+    <h3><%= @shoe_removed.brand%> has been removed from <%=@store.name%></h3>
+  </div>
+<% end %>

@@ -22,12 +22,12 @@
         <td><%= store.location %></td>
         <td>
           <form action="/store/update/<%= store.id %>" method="get">
-            <button class='btn btn-warning' type="submit">Update</button>
+            <button type="submit">Update</button>
           </form>
         </td>
         <td>
           <form action="/store/delete/<%= store.id %>" method="post">
-            <button class='btn btn-danger' type="submit">Delete</button>
+            <button type="submit">Delete</button>
           </form>
         </td>
       </tr>

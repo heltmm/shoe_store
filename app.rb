@@ -61,7 +61,7 @@ post('/store/delete/:id') do
   erb(:stores)
 end
 
-delete('/shoe/delete/:id') do
+post('/shoe/delete/:id') do
   @deleted_shoe = Shoe.find(params['id'])
   @shoe_delete = true
   Shoe.delete(params['id'])
@@ -135,5 +135,8 @@ end
 
 post('/shoe/remove/:id') do
   Store.find(params['store_id']).shoes.delete(params['id'])
-  redirect("/store/#{params['store_id']}")
+  @store = Store.find(params['store_id'])
+  @shoe_removed = Shoe.find(params['id'])
+  @brand_removed = true
+  erb(:store)
 end
