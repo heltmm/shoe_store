@@ -15,7 +15,7 @@
   <div class='col-lg-6'>
     <div class='card bg-light'>
       <h2>Update Location:</h2>
-      <form action="store/update/name/<%= @store.id %>" method="post">
+      <form action="/store/update/location/<%= @store.id %>" method="post">
         <input type="hidden" name="_method" value="patch">
         <input class='form-control' type="text" name="location">
         <button type="submit">Update Location</button>
@@ -25,7 +25,8 @@
 </div>
 <div class='card bg-light'>
   <h2>Update Shoes sold at this Store:</h2>
-  <form class="" action="index.html" method="post">
+  <form class="" action="/store/update/shoes/<%= @store.id %>" method="post">
+    <input type="hidden" name="_method" value="patch">
     <% if @shoes.any? %>
       <% @shoes.each do |shoe| %>
         <div class='checkbox'>

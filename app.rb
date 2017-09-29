@@ -92,3 +92,19 @@ patch('/store/update/name/:id') do
   @store = Store.find(params['id'])
   erb(:store)
 end
+
+patch('/store/update/location/:id') do
+  @old_location = Store.find(params['id']).location
+  if x = Store.find(params['id']).update({:location => params['location']})
+    @location_updated = true
+  else
+    @location_not_updated = true
+  end
+  @store = Store.find(params['id'])
+  erb(:store)
+end
+
+patch('/store/update/shoes/:id') do
+  Store.find(params['id']).update({:shoe_ids => params['shoe_ids']})
+  redirect("/store/#{params['id']}")
+end
