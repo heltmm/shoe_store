@@ -1,10 +1,6 @@
 <div class='row'>
   <div class='col-lg-6'>
     <h1><%= @store.name %></h1>
-    <form action="/store/delete/<%= @store.id %>" method="post">
-      <button type="submit" class='btn-danger'>Delete</button>
-
-    </form>
   </div>
   <div class='col-lg-6'>
     <h1><%= @store.location %></h1>
@@ -39,10 +35,18 @@
 <%else%>
   <h2>Currently no shoes available, click update to add shoes</h2>
 <%end%>
-<form class='form-inline' action="/store/update/<%= @store.id %>" method="get">
-  <button type="submit" class='btn-warning'>Update</button>
-</form>
-
+<div class='row' id='botom-margin'>
+  <div class='col-lg-6'>
+    <form class='form-inline' action="/store/update/<%= @store.id %>" method="get">
+      <button type="submit" class='btn-block btn btn-warning'>Update</button>
+    </form>
+  </div>
+  <div class='col-lg-6'>
+    <form action="/store/delete/<%= @store.id %>" method="post">
+      <button type="submit" class='btn btn-danger btn-block'>Delete</button>
+    </form>
+  </div>
+</div>
 <% if @name_updated %>
   <div class="alert alert-success">
     <h3><%= @old_name %> is now <%= @store.name%></h3>
