@@ -4,7 +4,6 @@ class Store < ActiveRecord::Base
   validates(:name, {:presence => true, :length => {:maximum => 100}})
   validates(:location, :presence => true)
   validates(:name, uniqueness: {case_sensitive: false})
-  validates(:location, uniqueness: {case_sensitive: false})
   before_save(:capitalize_input)
 
 private
